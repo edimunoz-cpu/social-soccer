@@ -26,7 +26,110 @@ model User {
   contactFormMessages       ContactFormMessage[]
   tasks                     Task[]
   files                     File[]
+
+  playerProfile             PlayerProfile?
 }
+
+model PlayerProfile {
+  id              String         @id @default(uuid())
+  userId          String         @unique
+  user            User           @relation(fields: [userId], references: [id])
+  fullName        String
+  dni             String         @unique
+  photoUrl        String?
+  qrCode          String         @unique
+  isSuspended     Boolean        @default(false)
+  currentTeamId   String?
+  team            Team?          @relation(fields: [currentTeamId], references: [id])
+  matchEvents     MatchEvent[]
+  communityPoints Int            @default(0)
+  createdAt       DateTime       @default(now())
+}
+
+model Team {
+  id              String         @id @default(uuid())
+  name            String
+  logoUrl         String?
+  category        String
+  delegateId      String
+  players         PlayerProfile[]
+  homeMatches     Match[]        @relation("HomeTeam")
+  awayMatches     Match[]        @relation("AwayTeam")
+  payments        PaymentRecord[]
+}
+
+model Match {
+  id              String         @id @default(uuid())
+  homeTeamId      String
+  awayTeamId      String
+  homeTeam        Team           @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  awayTeam        Team           @relation("AwayTeam", fields: [awayTeamId], references: [id])
+  scheduledAt     DateTime
+  pitchName       String
+  status          MatchStatus    @default(SCHEDULED)
+  homeGoals       Int            @default(0)
+  awayGoals       Int            @default(0)
+  events          MatchEvent[]
+  vocalSignedAt   DateTime?
+}
+
+enum MatchStatus {
+  SCHEDULED
+  LIVE
+  FINISHED
+  SUSPENDED
+}
+
+model MatchEvent {
+  id              String         @id @default(uuid())
+  matchId         String
+  match           Match          @relation(fields: [matchId], references: [id])
+  playerId        String
+  player          PlayerProfile  @relation(fields: [playerId], references: [id])
+  eventType       EventType
+  minute          Int
+}
+
+enum EventType {
+  GOAL
+  ASSIST
+  YELLOW_CARD
+  RED_CARD
+  SUB_IN
+  SUB_OUT
+}
+
+model PaymentRecord {
+  id              String         @id @default(uuid())
+  teamId          String
+  team            Team           @relation(fields: [teamId], references: [id])
+  amount          Float
+  paymentType     PaymentType
+  paymentMethod   PaymentMethod
+  referenceNumber String?
+  proofUrl        String?
+  status          PaymentStatus  @default(PENDING)
+  createdAt       DateTime       @default(now())
+}
+
+enum PaymentType {
+  REFEREE_FEE
+  FINE
+  INSCRIPTION
+}
+
+enum PaymentMethod {
+  DEUNA
+  BANK_TRANSFER
+  CASH
+}
+
+enum PaymentStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
 
 model GptResponse {
   id                        String          @id @default(uuid())

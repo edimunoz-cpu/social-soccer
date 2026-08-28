@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital ID - SocialSoccer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#ffb691",
+                        "on-primary-container": "#cbffc2",
+                        "tertiary": "#ffb1c7",
+                        "inverse-on-surface": "#2d3038",
+                        "error-container": "#93000a",
+                        "secondary-container": "#ff751b",
+                        "surface-container-highest": "#32353c",
+                        "on-surface": "#e0e2ec",
+                        "secondary": "#ffb691",
+                        "on-background": "#e0e2ec",
+                        "surface-tint": "#88d982",
+                        "on-secondary-container": "#5d2400",
+                        "surface-container-low": "#191b23",
+                        "primary-fixed-dim": "#88d982",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#10131a",
+                        "tertiary-fixed": "#ffd9e2",
+                        "inverse-surface": "#e0e2ec",
+                        "outline": "#8a9485",
+                        "background": "#10131a",
+                        "surface-container": "#1d2027",
+                        "on-tertiary-container": "#ffedf0",
+                        "on-tertiary-fixed": "#3f001c",
+                        "surface-variant": "#32353c",
+                        "primary-container": "#2e7d32",
+                        "on-primary": "#003909",
+                        "surface-container-lowest": "#0b0e15",
+                        "primary-fixed": "#a3f69c",
+                        "on-primary-fixed-variant": "#005312",
+                        "surface-bright": "#363941",
+                        "primary": "#88d982",
+                        "outline-variant": "#40493d",
+                        "on-secondary": "#552000",
+                        "tertiary-container": "#b14b6f",
+                        "on-error": "#690005",
+                        "on-surface-variant": "#bfcaba",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb1c7",
+                        "on-tertiary-fixed-variant": "#7f2448",
+                        "on-secondary-fixed-variant": "#793100",
+                        "on-tertiary": "#610931",
+                        "on-secondary-fixed": "#341100",
+                        "surface": "#10131a",
+                        "surface-container-high": "#272a31",
+                        "on-primary-fixed": "#002204",
+                        "inverse-primary": "#1b6d24",
+                        "secondary-fixed": "#ffdbcb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "md": "24px",
+                        "base": "8px",
+                        "gutter": "20px",
+                        "lg": "48px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "stats-number": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }],
+                        "stats-number": ["20px", { "lineHeight": "24px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-sans selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface border-b border-white/10 flex items-center justify-between px-margin-mobile h-16 shadow-none">
+<button class="text-primary dark:text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50">
+<span class="material-symbols-outlined" style="font-size: 28px;">sports_soccer</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary truncate px-2">Digital ID</h1>
+<button class="text-primary dark:text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 relative">
+<span class="material-symbols-outlined" style="font-size: 28px;">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary-container rounded-full border border-surface"></span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[80px] pb-[96px] px-margin-mobile md:px-margin-desktop flex items-center justify-center">
+<!-- ID Card Container -->
+<div class="relative w-full max-w-sm mx-auto perspective-1000 group">
+<!-- Glassmorphism Card Base (Light background as requested, contrasting with dark surface) -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-2xl border border-white/20 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(136,217,130,0.2)]">
+<!-- Card Header / Team Branding -->
+<div class="h-32 bg-gradient-to-br from-surface-container-high to-surface-container-lowest relative overflow-hidden flex items-start justify-between p-md border-b border-surface-variant">
+<!-- Dynamic team pattern overlay -->
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:16px_16px]"></div>
+<div class="z-10 text-white">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-1">Official Player Pass</span>
+<div class="font-headline-md text-headline-md font-bold tracking-tight">FC METROPOLIS</div>
+</div>
+<!-- Team Badge -->
+<div class="z-10 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 shadow-lg">
+<span class="material-symbols-outlined text-primary" style="font-size: 28px; font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+</div>
+<!-- Player Info Section -->
+<div class="px-md pb-md pt-0 relative flex flex-col items-center">
+<!-- Player Photo Wrapper (Overlapping header) -->
+<div class="relative -mt-16 mb-4 z-20">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-xl bg-surface-variant relative group-hover:shadow-[0_0_20px_rgba(136,217,130,0.4)] transition-shadow duration-300">
+<img alt="Mateo Silva" class="w-full h-full object-cover" data-alt="A professional headshot of a young male soccer player with short dark hair, wearing a dark athletic jersey with subtle green trim. The lighting is dramatic and cinematic studio lighting, with a clean gradient grey background. High contrast, sharp focus, modern sports photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzIzYRFdCvFzZdI73m7CB0xnTBxT5ZDDuHB6rSj6hXb4fb35VSyFeehdubnytFf80-x5vxeOY8Q1KimhMqCiyjSOuY3plOHaBHgKxZJextu_sJPffmeJrHhpzqYNZJGeI8VSbmkqPtO1d7fyGKqIxjJB9rqSha1zhLHls5X9jqpZVeCYokYPowr-qzDW_e2jn7j4qGki_uCad4CPBdLu1Whp5PLidW2UE8Hk9TUnbOSDE0wfieYJ-c9A"/>
+</div>
+<!-- Status Indicator -->
+<div class="absolute bottom-1 right-1 w-6 h-6 bg-primary rounded-full border-2 border-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-primary" style="font-size: 14px; font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Name & Number -->
+<div class="text-center mb-6 w-full">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-surface-dim mb-1 group-hover:text-primary-container transition-colors duration-300">Mateo Silva</h2>
+<div class="flex items-center justify-center gap-2">
+<span class="bg-surface-dim text-white font-stats-number text-stats-number px-3 py-1 rounded-md shadow-inner">10</span>
+<span class="font-label-md text-label-md text-surface-variant">Midfielder</span>
+</div>
+</div>
+<!-- Key Stats / Info Bento Grid -->
+<div class="grid grid-cols-2 gap-sm w-full mb-8">
+<div class="bg-surface-container-lowest/5 border border-surface-variant/10 rounded-lg p-sm flex flex-col items-center justify-center">
+<span class="font-label-md text-label-md text-surface-variant/70 uppercase text-[10px]">League ID</span>
+<span class="font-body-md text-body-md text-surface-dim font-bold font-mono">SS-8472-MX</span>
+</div>
+<div class="bg-surface-container-lowest/5 border border-surface-variant/10 rounded-lg p-sm flex flex-col items-center justify-center">
+<span class="font-label-md text-label-md text-surface-variant/70 uppercase text-[10px]">Season</span>
+<span class="font-body-md text-body-md text-surface-dim font-bold">2023/2024</span>
+</div>
+</div>
+<!-- QR Code Section -->
+<div class="w-full flex flex-col items-center pt-md border-t border-surface-variant/20">
+<div class="w-40 h-40 bg-white p-2 rounded-xl shadow-inner border border-surface-variant/10 flex items-center justify-center mb-3 relative">
+<!-- Simulated QR Code visual (using grid for aesthetic) -->
+<div class="grid grid-cols-6 grid-rows-6 gap-1 w-full h-full opacity-80">
+<!-- Top Left Eye -->
+<div class="col-span-2 row-span-2 border-4 border-surface-dim rounded-sm"></div>
+<div class="col-start-3 row-start-1 bg-surface-dim rounded-sm"></div>
+<div class="col-start-6 row-start-1 bg-surface-dim rounded-sm"></div>
+<div class="col-start-4 row-start-2 col-span-2 bg-surface-dim rounded-sm"></div>
+<!-- Top Right Eye -->
+<div class="col-start-5 row-start-1 col-span-2 row-span-2 border-4 border-surface-dim rounded-sm"></div>
+<!-- Middle stuff -->
+<div class="col-start-1 row-start-3 col-span-2 bg-surface-dim rounded-sm"></div>
+<div class="col-start-4 row-start-3 bg-surface-dim rounded-sm"></div>
+<div class="col-start-6 row-start-3 bg-surface-dim rounded-sm"></div>
+<div class="col-start-2 row-start-4 bg-surface-dim rounded-sm"></div>
+<div class="col-start-3 row-start-4 col-span-2 bg-primary-container rounded-sm"></div>
+<div class="col-start-5 row-start-4 row-span-2 bg-surface-dim rounded-sm"></div>
+<!-- Bottom Left Eye -->
+<div class="col-start-1 row-start-5 col-span-2 row-span-2 border-4 border-surface-dim rounded-sm"></div>
+<div class="col-start-3 row-start-6 bg-surface-dim rounded-sm"></div>
+<div class="col-start-4 row-start-5 col-span-2 bg-surface-dim rounded-sm"></div>
+<div class="col-start-6 row-start-6 bg-primary-container rounded-sm"></div>
+</div>
+<!-- Scanner line animation overlay -->
+<div class="absolute inset-x-2 top-2 h-0.5 bg-primary/80 shadow-[0_0_8px_rgba(136,217,130,0.8)] animate-[scan_2s_ease-in-out_infinite]"></div>
+</div>
+<span class="font-label-md text-label-md text-surface-variant text-center max-w-[200px]">Scan for real-time match eligibility and stats.</span>
+</div>
+</div>
+<!-- Card Footer Banner -->
+<div class="h-2 bg-primary w-full"></div>
+</div>
+<!-- Glow effect behind card -->
+<div class="absolute inset-0 bg-primary/20 blur-3xl -z-10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container dark:bg-surface-container border-t border-white/10 shadow-lg flex justify-around items-center py-2 px-4 md:hidden">
+<!-- Home (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-bright/10 active:scale-90 transition-all duration-200 p-2 rounded-lg w-16 focus:outline-none">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-md text-label-md text-[10px] leading-tight">Home</span>
+</button>
+<!-- Matches (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-bright/10 active:scale-90 transition-all duration-200 p-2 rounded-lg w-16 focus:outline-none">
+<span class="material-symbols-outlined mb-1">event_note</span>
+<span class="font-label-md text-label-md text-[10px] leading-tight">Matches</span>
+</button>
+<!-- Teams (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-bright/10 active:scale-90 transition-all duration-200 p-2 rounded-lg w-16 focus:outline-none">
+<span class="material-symbols-outlined mb-1">groups</span>
+<span class="font-label-md text-label-md text-[10px] leading-tight">Teams</span>
+</button>
+<!-- Profile (Active - Semantic match for ID Card) -->
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary font-bold hover:bg-surface-bright/10 active:scale-90 transition-all duration-200 p-2 rounded-lg w-16 focus:outline-none relative">
+<!-- Active indicator pill behind icon -->
+<div class="absolute top-1 w-12 h-8 bg-primary/20 rounded-full -z-10"></div>
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span class="font-label-md text-label-md text-[10px] leading-tight">Profile</span>
+</button>
+</nav>
+<style>
+        @keyframes scan {
+            0% { transform: translateY(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(140px); opacity: 0; }
+        }
+    </style>
+</body></html>

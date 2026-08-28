@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SocialSoccer Dashboard</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#10131a",
+                      "on-primary": "#00315b",
+                      "primary-container": "#0b5fa5",
+                      "on-tertiary-container": "#ffcac8",
+                      "on-tertiary-fixed-variant": "#92001c",
+                      "on-primary-fixed-variant": "#004881",
+                      "surface": "#10131a",
+                      "tertiary-fixed": "#ffdad8",
+                      "on-secondary-fixed": "#390c00",
+                      "surface-container-highest": "#32353c",
+                      "secondary": "#ffb59d",
+                      "on-surface-variant": "#c1c7d2",
+                      "surface-container-high": "#272a31",
+                      "error": "#ffb4ab",
+                      "tertiary": "#ffb3b1",
+                      "surface-bright": "#363940",
+                      "outline-variant": "#414751",
+                      "on-secondary-fixed-variant": "#832600",
+                      "surface-container": "#1d2026",
+                      "primary": "#a2c9ff",
+                      "on-secondary-container": "#ffddd2",
+                      "inverse-surface": "#e0e2eb",
+                      "primary-fixed": "#d3e4ff",
+                      "on-secondary": "#5d1900",
+                      "on-tertiary-fixed": "#410007",
+                      "tertiary-fixed-dim": "#ffb3b1",
+                      "surface-container-lowest": "#0b0e14",
+                      "surface-variant": "#32353c",
+                      "on-tertiary": "#680011",
+                      "tertiary-container": "#b9132b",
+                      "primary-fixed-dim": "#a2c9ff",
+                      "on-error-container": "#ffdad6",
+                      "on-background": "#e0e2eb",
+                      "on-primary-container": "#bfd9ff",
+                      "secondary-fixed-dim": "#ffb59d",
+                      "surface-tint": "#a2c9ff",
+                      "on-surface": "#e0e2eb",
+                      "inverse-primary": "#0e60a6",
+                      "background": "#10131a",
+                      "error-container": "#93000a",
+                      "secondary-fixed": "#ffdbd0",
+                      "on-error": "#690005",
+                      "surface-container-low": "#191c22",
+                      "outline": "#8b919c",
+                      "secondary-container": "#b83900",
+                      "inverse-on-surface": "#2d3037",
+                      "on-primary-fixed": "#001c38"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "32px",
+                      "gutter": "12px",
+                      "lg": "24px",
+                      "xl": "32px",
+                      "margin-mobile": "16px",
+                      "base": "4px",
+                      "xs": "4px",
+                      "sm": "8px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "display-score": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "stats-numeric": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-score": [
+                              "48px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "stats-numeric": [
+                              "16px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        /* Inter Font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+        /* Material Symbols Fill Configuration */
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Custom Scrollbar for horizontal scrolling sections */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Pulse Animation for Live Badges */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 4px rgba(255, 107, 53, 0); }
+            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 2s infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-sm min-h-screen pb-safe antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container dark:bg-surface-container border-b border-white/10 flex items-center justify-between px-md h-16 w-full">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary dark:text-primary" data-icon="sports_soccer">sports_soccer</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary">SocialSoccer</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/5 active:scale-95 transition-transform text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 pb-24 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto flex flex-col gap-xl">
+<!-- Live Scores Section (Horizontal Scroll) -->
+<section>
+<div class="flex items-center justify-between mb-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Live Now</h2>
+<a class="font-body-sm text-body-sm text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="flex gap-md overflow-x-auto hide-scrollbar pb-sm -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0">
+<!-- Live Match Card 1 -->
+<div class="min-w-[280px] bg-surface-container-high rounded-lg p-md border border-white/10 relative shadow-sm">
+<!-- Live Badge -->
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FF6B35] text-white px-3 py-1 rounded-full flex items-center gap-1 shadow-md z-10">
+<div class="w-2 h-2 rounded-full bg-white animate-pulse-ring"></div>
+<span class="font-label-caps text-label-caps uppercase">72'</span>
+</div>
+<div class="flex justify-between items-center mt-sm">
+<!-- Team A -->
+<div class="flex flex-col items-center gap-xs w-20">
+<img class="w-10 h-10 object-contain" data-alt="A minimal, stylized crest for a soccer team named 'FC Strikers', high contrast, dynamic angles, set against a dark background, evoking a modern high-performance aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4kgQ5Ck3PQHYY6bWk9mzFaOiU__ikdgY6sALMEyM-3WdhXpP-NzW-kQJOcxeyvIxipKoTwg2TVaawTvRJxCriaJlOAZZslBMSiIqeOEqGRzXzEccfM49ebdM9mZKOqV728GJXa59pTwiCO9Yj00YSlu_8mlMIA1gnJ_ivHoabES8lwS92OYGW9pjQpA5sCG9NAM5d9pssdzforZb61BHTY1cRGPPvUP6nyB3fNXo1sI6wHAeJ3cq_JA"/>
+<span class="font-label-caps text-label-caps text-on-surface text-center truncate w-full">FC Strikers</span>
+</div>
+<!-- Score -->
+<div class="flex flex-col items-center justify-center">
+<div class="flex items-center gap-sm">
+<span class="font-display-score text-display-score text-on-surface">2</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant">-</span>
+<span class="font-display-score text-display-score text-on-surface">1</span>
+</div>
+</div>
+<!-- Team B -->
+<div class="flex flex-col items-center gap-xs w-20">
+<img class="w-10 h-10 object-contain" data-alt="A modern, sharp logo for a soccer team named 'United United', featuring a bold emblem design, high contrast white and blue tones, perfectly suited for a dark mode athletic UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaQ-bJJjcWEXR7l1ICTU_RllhYgj0Q-FKBDfdpv42GA2H0oDQ2xc5t4yuEmX2FjSofyh7crdM_aEISYv2_6dwKp9B1B1AYsArVTezZxBtesdjlOOnKhXXBJ89hQA5iU93wdpsOx5Zt6_N0ElQPgLZVIaiGxm6GnXv_5AUtyCUu2sciwcaqVvYC9Gomx9iRzgZ8aOegi6GYVpZQ0hjgCqocBJq6ZwYnRGuhcXRvrrQbVqgrnR7gHnOSkA"/>
+<span class="font-label-caps text-label-caps text-on-surface text-center truncate w-full">United</span>
+</div>
+</div>
+<!-- Alert / Highlight -->
+<div class="mt-md pt-sm border-t border-white/10 flex items-center justify-center gap-xs">
+<span class="inline-block w-3 h-4 bg-[#E63946] rounded-sm"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">J. Smith (68')</span>
+</div>
+</div>
+<!-- Live Match Card 2 -->
+<div class="min-w-[280px] bg-surface-container-high rounded-lg p-md border border-white/10 relative shadow-sm">
+<!-- Live Badge -->
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FF6B35] text-white px-3 py-1 rounded-full flex items-center gap-1 shadow-md z-10">
+<div class="w-2 h-2 rounded-full bg-white animate-pulse-ring"></div>
+<span class="font-label-caps text-label-caps uppercase">45+2'</span>
+</div>
+<div class="flex justify-between items-center mt-sm">
+<!-- Team A -->
+<div class="flex flex-col items-center gap-xs w-20">
+<img class="w-10 h-10 object-contain" data-alt="A geometric, aggressive crest for a soccer team named 'City Stars', neon yellow and black, clean vector style, dark background, modern athletic branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNZpejZ2V6bN1kcYwqBsRZdHTp3GrowxCprv_BajNpzJ9XQctGduMsjEi2X1etd5EKFNJ4y3LOdUtLCuk6CkqcH3o1t_J2dw_T20AN2wqVcoyxsJZsp8q50pScvg5ny-mtMXXq2xHIZAJZmRQpS2pBQD9ZypPk5ol7IXj8Dkwv7BcorY8S4fa2R5Rn4I6Gndv9_Lke9XRBbKvGMyzL-8ctal4OJDB8PPG2L-mReeg7o0QD5Id6s5SbkQ"/>
+<span class="font-label-caps text-label-caps text-on-surface text-center truncate w-full">City Stars</span>
+</div>
+<!-- Score -->
+<div class="flex flex-col items-center justify-center">
+<div class="flex items-center gap-sm">
+<span class="font-display-score text-display-score text-on-surface">0</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant">-</span>
+<span class="font-display-score text-display-score text-on-surface">0</span>
+</div>
+</div>
+<!-- Team B -->
+<div class="flex flex-col items-center gap-xs w-20">
+<img class="w-10 h-10 object-contain" data-alt="A sleek, traditional yet modernized crest for 'Royal Rangers', deep blue and gold details, sharp lines, highly legible for a high-contrast dark mode sports app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkM57wSYs0day7rpbiItHbuxgy88kqfQhlCaE4e8y02i3MXZiIHhdbA---Og9B_vAne55eczTdN5EzrpX2dQbtkBlNWbskLBwCLh89oOzLHEIlPf8J9yJITOaHBhEiKvVCkvk1uVlWLE2DUE_yN4gIozCx4ZKDZoouQzW37OzZVe_WN-P_6NYR1axhG7i4rbZdDiC-EzrYqI-j5lZ3ThYw2kv9_A-vF1MFBqiUOEezuXIJtjUe_-ywqQ"/>
+<span class="font-label-caps text-label-caps text-on-surface text-center truncate w-full">Royals</span>
+</div>
+</div>
+<!-- Alert / Highlight -->
+<div class="mt-md pt-sm border-t border-white/10 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="sports_soccer">sports_soccer</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Penalty Awarded</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Standings Section (Bento/Card layout) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<div class="md:col-span-8 bg-surface-container-high rounded-xl border border-white/10 overflow-hidden flex flex-col">
+<div class="p-md border-b border-white/10 flex justify-between items-center bg-surface-bright/20">
+<h2 class="font-headline-md text-headline-md text-on-surface">League Standings</h2>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-white/10 text-on-surface-variant font-label-caps text-label-caps uppercase bg-surface-container-highest/30">
+<th class="p-3 w-8 text-center font-normal">#</th>
+<th class="p-3 min-w-[140px] font-normal">Club</th>
+<th class="p-3 text-center w-12 font-normal">W</th>
+<th class="p-3 text-center w-12 font-normal">D</th>
+<th class="p-3 text-center w-12 font-normal">L</th>
+<th class="p-3 text-right pr-md w-16 text-on-surface font-bold">Pts</th>
+</tr>
+</thead>
+<tbody class="font-stats-numeric text-stats-numeric text-on-surface">
+<!-- Favorite Team Highlight -->
+<tr class="border-b border-white/10 bg-primary/5 border-l-4 border-l-primary hover:bg-white/5 transition-colors group">
+<td class="p-3 text-center text-primary">1</td>
+<td class="p-3">
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-surface flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-contain" data-alt="A tiny 24x24 pixel-perfect crest for 'FC Strikers', high contrast, easily identifiable on dark mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDazH6DnK5s5Wp1zSgBeTkxSEGkY6DyvHpC-cYHGS86dYE_9fQTJiENpDRAhL4b82smMXYziN7KGB2YP8-d10_p0wFl4FwqKbEN26lDI83Rs4CvzHkULbWxRfTy1GodAA7jhElOtNtuzhAB2gelda6d4OMw9h2ol08Bwp92SecSLJANKQJH7ix-g3O6DEjNIiu1kFu8L-Df-fuy6k0IHLCmzCwaPquwX5vrRsyPuLSKYF5V2J8Yah4kRQ"/>
+</div>
+<span class="font-body-sm text-body-sm font-semibold">FC Strikers</span>
+</div>
+</td>
+<td class="p-3 text-center">14</td>
+<td class="p-3 text-center text-on-surface-variant">2</td>
+<td class="p-3 text-center text-on-surface-variant">1</td>
+<td class="p-3 text-right pr-md text-primary font-bold">44</td>
+</tr>
+<tr class="border-b border-white/10 hover:bg-white/5 transition-colors border-l-4 border-l-transparent">
+<td class="p-3 text-center text-on-surface-variant">2</td>
+<td class="p-3">
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-surface flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-contain" data-alt="A tiny 24x24 pixel-perfect crest for 'United United', clean sharp lines, dark mode optimized." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtY2vmjWq_ENLcJJ2jo169QWNmilAyJgLHSoeWPU_CgoIq5JMATiOgxkbRW36tiVexw1mRCacJr8DuzT7xbyasJ6gvRwkOXiUBRvTe30OWCMi4C8lGtFIvbceKo9jJFCPfjhTAuEkaWUc-0quY1YDAKq8Lg5_e-yhLiRWsI12VK__Y2RqOOQAzdUOcOX_mhgypqNUY69xpMXdEyXIHmaCYjm3duJFTEtJKNbmpAPxBD__Wx47IXSRf9g"/>
+</div>
+<span class="font-body-sm text-body-sm">United United</span>
+</div>
+</td>
+<td class="p-3 text-center">12</td>
+<td class="p-3 text-center text-on-surface-variant">4</td>
+<td class="p-3 text-center text-on-surface-variant">1</td>
+<td class="p-3 text-right pr-md font-bold">40</td>
+</tr>
+<tr class="border-b border-white/10 hover:bg-white/5 transition-colors border-l-4 border-l-transparent">
+<td class="p-3 text-center text-on-surface-variant">3</td>
+<td class="p-3">
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-surface flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-contain" data-alt="A tiny 24x24 pixel-perfect crest for 'Goal Getters', abstract shape, bright accent colors, dark mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0pm1M1T7ifWDrhOJX1nEHP-xWJRSNsL4_of-UuCXB-8cH8GmSs8y_nCjV8kZdlQtJNT4kRvaKdqkY9x1BAR2RN0Wsinms7TIPR1bhgiNN2HfIXm6E21QIKHV_gbqW-t7X9npOIEZQhkX6SuuQ45vefEnQop14-jjjHRrQNyqDXMd9rPO60ZnOCXRAP2QwrwwcqXz3-wtgdEOdUGfIW_BGIvyOeQiQ7KJzvJ59xXnfIOI4R2QFqJt80g"/>
+</div>
+<span class="font-body-sm text-body-sm">Goal Getters</span>
+</div>
+</td>
+<td class="p-3 text-center">11</td>
+<td class="p-3 text-center text-on-surface-variant">3</td>
+<td class="p-3 text-center text-on-surface-variant">3</td>
+<td class="p-3 text-right pr-md font-bold">36</td>
+</tr>
+<tr class="border-b border-white/10 hover:bg-white/5 transition-colors border-l-4 border-l-transparent">
+<td class="p-3 text-center text-on-surface-variant">4</td>
+<td class="p-3">
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-surface flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-contain" data-alt="A tiny 24x24 pixel-perfect crest for 'City Stars', neon yellow accent, dark mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMoDWuwTqpNAT-_MNffzQZgL25n5ITIlKe7NjJdBd0qd4zpSBMWcnzXJWGolaCt-HbUR3XJouWiT4pTeI7QztsFwRDleacBLAiXqizW6PFyAhYmOYTSaLcn5yolNfitpKQT9jjG-jczubDCMTqfGgyyTejvqt3fN5uilu0zNeJ6jfOUjdDOeDju6hRkyuwuknq9-TcreWpF7prDhIWb1yIOdeRMzrhWvURg-zVinucqf1bjtGLLDPCdw"/>
+</div>
+<span class="font-body-sm text-body-sm">City Stars</span>
+</div>
+</td>
+<td class="p-3 text-center">9</td>
+<td class="p-3 text-center text-on-surface-variant">5</td>
+<td class="p-3 text-center text-on-surface-variant">3</td>
+<td class="p-3 text-right pr-md font-bold">32</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-3 bg-surface-container-highest/20 text-center border-t border-white/10">
+<button class="font-label-caps text-label-caps text-primary hover:text-primary-fixed uppercase tracking-wider transition-colors">Full Table</button>
+</div>
+</div>
+<!-- Contextual Action / Mini Stats (Bento Side) -->
+<div class="md:col-span-4 flex flex-col gap-md">
+<!-- Top Scorer Widget -->
+<div class="bg-surface-container-high rounded-xl border border-white/10 p-md flex flex-col gap-sm relative overflow-hidden">
+<div class="absolute -right-4 -top-4 text-white/5 pointer-events-none">
+<span class="material-symbols-outlined text-[120px]" data-icon="sports_martial_arts">sports_martial_arts</span>
+</div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase">Top Scorer</h3>
+<div class="flex items-center gap-md z-10">
+<div class="w-12 h-12 rounded-full bg-surface-bright overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="A stylized portrait of a professional soccer player, intense lighting, dark moody background, highly detailed, suitable for a sports dashboard avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARBaI5JkL-eQwIhn-MaxmUoEhMZL48jcjmnhMsJVwzJvZZ-FHwOKjt8xafXM-cU--iRkxc3mF8T72n3D0Yb4_wPHS4hBnQnjhBR1OhaslQx3bI1ydBnkd9XAPrwDTM9uRnChr9OQQpawvdbe69tLB4Pwj9ReC-oYXkURjc6FEO62nZjRK8Lr353y7oZdx2v6vTGhpgGpLOgzl_ayzzSh__MhFt0jJU0AdMxTjWjUH65Tscc8p3ohhmJQ"/>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-surface">M. Silva</p>
+<p class="font-body-sm text-body-sm text-primary font-semibold">18 Goals</p>
+</div>
+</div>
+</div>
+<!-- Quick Action -->
+<div class="bg-primary-container rounded-xl p-md flex items-center justify-between shadow-sm cursor-pointer hover:bg-primary-container/90 transition-colors">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-primary">Next Match</h3>
+<p class="font-body-sm text-body-sm text-on-primary/80">Sat 20:00 vs City Stars</p>
+</div>
+<span class="material-symbols-outlined text-on-primary text-[32px]" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 pb-safe bg-surface-container dark:bg-surface-container border-t border-white/10 flex justify-around items-center h-16 w-full px-md">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary font-bold hover:bg-white/5 active:scale-90 transition-all w-16 h-full rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="home" data-weight="fill">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<!-- Standings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-white/5 active:scale-90 transition-all w-16 h-full rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-caps text-label-caps mt-1">Standings</span>
+</a>
+<!-- Matches -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-white/5 active:scale-90 transition-all w-16 h-full rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="sports_and_outdoors">sports_and_outdoors</span>
+<span class="font-label-caps text-label-caps mt-1">Matches</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-white/5 active:scale-90 transition-all w-16 h-full rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
